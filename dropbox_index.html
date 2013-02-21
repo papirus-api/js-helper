@@ -15,7 +15,7 @@ var oldWindowOpen = window.open;
 window.open = function(url, sName, sFeatures, bReplace) {
  	//oldWindowOpen(url, '_self');return window;
   alert(url);
-  document.getElementById('asdasd').innerHtml = url;
+  document.getElementById('asdasd').innerHTML = url;
   document.getElementById('dropboxview').src=url;
   //return document.getElementById('dropboxview').contentWindow;
   return window;
