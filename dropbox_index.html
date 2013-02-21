@@ -1,8 +1,10 @@
 <html>
 <body>
 Loading Dropbox...
+
 <script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropbox.js" id="dropboxjs" data-app-key="bds0t14obmkbjjs"></script>
 <script>
+<iframe src="" id="dropboxview" style="width:200px;height:200px"></iframe>
 //window.open = function (open) { 
 //  return function  (url, name, features) { 
 //		window.location.href = url; 
@@ -12,7 +14,8 @@ Loading Dropbox...
 
 var oldWindowOpen = window.open;
 window.open = function(url, sName, sFeatures, bReplace) {
- 	oldWindowOpen(url, '_self');
+ 	//oldWindowOpen(url, '_self');
+  document.getElementById('dropboxview').src=url;
   return window;
 };
 
