@@ -1,0 +1,34 @@
+<html>
+<body>
+Loading Dropbox...
+<script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropbox.js" id="dropboxjs" data-app-key="bds0t14obmkbjjs"></script>
+<script>
+//window.open = function (open) { 
+//  return function  (url, name, features) { 
+//		window.location.href = url; 
+//		return window; 
+//	};
+//} (window.open);
+
+var oldWindowOpen = window.open;
+window.open = function(url, sName, sFeatures, bReplace) {
+ 	oldWindowOpen(url, '_self');
+};
+
+Dropbox.choose({
+//iframe: true,
+linkType: "preview",
+success: function(files) {
+                // Required. Called when a user selects an item in the Chooser
+                	alert("Here's the file link:" + files[0].link);
+            },
+ cancel:  function() {
+                // Called when the user closes the dialog
+                // without selecting a file and does not include any parameters.
+ 	alert("cancelled");
+            }
+});
+alert(2);
+</script>
+</body>
+</html>
