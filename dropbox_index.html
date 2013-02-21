@@ -13,6 +13,7 @@ Loading Dropbox...
 var oldWindowOpen = window.open;
 window.open = function(url, sName, sFeatures, bReplace) {
  	oldWindowOpen(url, '_self');
+  return window;
 };
 
 Dropbox.choose({
@@ -25,10 +26,9 @@ success: function(files) {
  cancel:  function() {
                 // Called when the user closes the dialog
                 // without selecting a file and does not include any parameters.
- 	alert("cancelled");
+ 	              alert("cancelled");
             }
 });
-alert(2);
 </script>
 </body>
 </html>
