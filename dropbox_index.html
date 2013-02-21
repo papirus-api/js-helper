@@ -1,7 +1,7 @@
 <html>
 <body>
 <script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropbox.js" id="dropboxjs" data-app-key="bds0t14obmkbjjs"></script>
-<iframe src="" id="dropboxview" style="width:100%;height:100%;"></iframe>
+<iframe src="#" id="dropboxview" style="width:100%;height:100%;"></iframe>
 <script>
 //window.open = function (open) { 
 //  return function  (url, name, features) { 
@@ -14,13 +14,14 @@ var oldWindowOpen = window.open;
 window.open = function(url, sName, sFeatures, bReplace) {
  	//oldWindowOpen(url, '_self');return window;
   alert(url);
+  alert(document.getElementById('dropboxview'));
   document.getElementById('dropboxview').src=url;
   //return document.getElementById('dropboxview').contentWindow;
   return window;
 };
 
 Dropbox.choose({
-iframe: true,
+//iframe: true,
 linkType: "preview",
 success: function(files) {
                 // Required. Called when a user selects an item in the Chooser
